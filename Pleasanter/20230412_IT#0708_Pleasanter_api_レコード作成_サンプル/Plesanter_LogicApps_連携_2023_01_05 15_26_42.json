@@ -1,0 +1,265 @@
+﻿{
+  "HeaderInfo": {
+    "AssemblyVersion": "1.3.27.1",
+    "BaseSiteId": 7121098,
+    "Server": "https://demo.pleasanter.org",
+    "CreatorName": "テナント管理者",
+    "PackageTime": "2023-01-05T06:26:41.9994819+00:00",
+    "Convertors": [
+      {
+        "SiteId": 7121098,
+        "SiteTitle": "Plesanter_LogicApps_連携",
+        "ReferenceType": "Issues",
+        "IncludeData": false
+      }
+    ],
+    "IncludeSitePermission": true,
+    "IncludeRecordPermission": true,
+    "IncludeColumnPermission": true,
+    "IncludeNotifications": true,
+    "IncludeReminders": true
+  },
+  "Sites": [
+    {
+      "TenantId": 14638,
+      "SiteId": 7121098,
+      "Title": "Plesanter_LogicApps_連携",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "ReferenceType": "Issues",
+      "ParentId": 7121097,
+      "InheritPermission": 7121097,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Issues",
+        "GridColumns": [
+          "IssueId",
+          "TitleBody",
+          "ClassB",
+          "ClassC",
+          "ClassD",
+          "ClassE",
+          "ClassF",
+          "DateA",
+          "DateB",
+          "ClassG",
+          "Status",
+          "Owner"
+        ],
+        "FilterColumns": [
+          "Status",
+          "Owner",
+          "ClassB",
+          "ClassG",
+          "ClassH",
+          "ClassI",
+          "ClassJ",
+          "ClassK",
+          "ClassL",
+          "ClassM",
+          "ClassN",
+          "ClassO",
+          "ClassP",
+          "ClassQ",
+          "ClassR",
+          "ClassS",
+          "ClassT",
+          "ClassU",
+          "ClassV",
+          "ClassW",
+          "ClassX",
+          "ClassY",
+          "ClassZ",
+          "NumA",
+          "NumB",
+          "NumC",
+          "NumD",
+          "NumE",
+          "NumF",
+          "NumG",
+          "NumH",
+          "NumI",
+          "NumJ",
+          "NumK",
+          "NumL",
+          "NumM",
+          "NumN",
+          "NumO",
+          "NumP",
+          "NumQ",
+          "NumR",
+          "NumS",
+          "NumT",
+          "NumU",
+          "NumV",
+          "NumW",
+          "NumX",
+          "NumY",
+          "NumZ",
+          "DateC",
+          "DateD",
+          "DateE",
+          "DateF",
+          "DateG",
+          "DateH",
+          "DateI",
+          "DateJ",
+          "DateK",
+          "DateL",
+          "DateM",
+          "DateN",
+          "DateO",
+          "DateP",
+          "DateQ",
+          "DateR",
+          "DateS",
+          "DateT",
+          "DateU",
+          "DateV",
+          "DateW",
+          "DateX",
+          "DateY",
+          "DateZ",
+          "CheckA",
+          "CheckB",
+          "CheckC",
+          "CheckD",
+          "CheckE",
+          "CheckF",
+          "CheckG",
+          "CheckH",
+          "CheckI",
+          "CheckJ",
+          "CheckK",
+          "CheckL",
+          "CheckM",
+          "CheckN",
+          "CheckO",
+          "CheckP",
+          "CheckQ",
+          "CheckR",
+          "CheckS",
+          "CheckT",
+          "CheckU",
+          "CheckV",
+          "CheckW",
+          "CheckX",
+          "CheckY",
+          "CheckZ",
+          "SiteTitle"
+        ],
+        "EditorColumnHash": {
+          "General": [
+            "IssueId",
+            "Title",
+            "Body",
+            "ClassB",
+            "ClassC",
+            "ClassD",
+            "ClassE",
+            "ClassF",
+            "DateA",
+            "DateB",
+            "ClassG",
+            "Owner",
+            "Status",
+            "Comments",
+            "Ver"
+          ]
+        },
+        "Columns": [
+          {
+            "ColumnName": "ClassA",
+            "LabelText": "処理タイプ"
+          },
+          {
+            "ColumnName": "ClassB",
+            "LabelText": "イベント区分",
+            "ChoicesText": "入社\n基本情報変更\n異動\n昇格\n退社",
+            "ValidateRequired": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassC",
+            "LabelText": "従業員番号",
+            "ValidateRequired": true,
+            "MaxLength": 8.0,
+            "NoDuplication": true
+          },
+          {
+            "ColumnName": "ClassD",
+            "LabelText": "姓",
+            "ValidateRequired": true,
+            "MaxLength": 50.0
+          },
+          {
+            "ColumnName": "ClassE",
+            "LabelText": "名",
+            "ValidateRequired": true,
+            "MaxLength": 50.0
+          },
+          {
+            "ColumnName": "ClassF",
+            "LabelText": "メールアドレス",
+            "ValidateRequired": true
+          },
+          {
+            "ColumnName": "DateA",
+            "LabelText": "入社日",
+            "ValidateRequired": true
+          },
+          {
+            "ColumnName": "ClassG",
+            "LabelText": "部署コード",
+            "ValidateRequired": true
+          },
+          {
+            "ColumnName": "Status",
+            "ChoicesText": "100,未着手,未,status-new\n150,準備,準,status-preparation\n200,実施中,実,status-inprogress\n900,データ投入完了,完,status-closed\n910,データ連携完了,完,status-closed\n920,エラー,失敗,status-closed"
+          },
+          {
+            "ColumnName": "DateB",
+            "LabelText": "退職日"
+          }
+        ],
+        "Scripts": [
+          {
+            "Title": "「新規作成時／それ以外」で異なるボタンを表示",
+            "All": true,
+            "Body": "$p.events.on_editor_load =  function () {\n\n    //ボタンの初期化　デフォルト非表示\n    if($(\"#HeaderTitle\").text() === '新規作成'){\n        $(\"#MainCommands button:last-child\").after($('<button id=\"Approval\" class=\"button button-icon validate\" type=\"button\" onclick=\"alert(\\'if分岐のボタンが押されました\\');\" data-icon=\"ui-icon-circle-triangle-e\" data-action=\"Create\" data-method=\"post\">if分岐のボタン名</button>'));\n    } else {\n        $(\"#MainCommands button:last-child\").after($('<button id=\"Approval\" class=\"button button-icon validate\" type=\"button\" onclick=\"alert(\\'else分岐のボタンが押されました\\');\" data-icon=\"ui-icon-circle-triangle-e\" data-action=\"Create\" data-method=\"post\">else分岐のボタン名</button>'));\n    }\n}",
+            "Id": 1
+          }
+        ],
+        "ServerScripts": [
+          {
+            "Title": "test",
+            "Name": "",
+            "AfterCreate": true,
+            "AfterUpdate": true,
+            "Body": "try {\n    context.Log('model.Status: (' + model.Status + ')');\n    if (model.Status === 900) // 状況がデータ投入完了(900)の場合\n    {\n        // Date 型を\"yyyy/MM/dd\" 形式の文字列に変換する関数\n        function convDateString(datetime, adjustGMTtoJST) {\n            if(datetime.getFullYear().toString().padStart(4, '0') > '1900'){\n                // GMT→JSTへの変換\n                datetime.setHours(datetime.getHours() + adjustGMTtoJST);\n                context.Log('===============================');\n            }\n            // 年、月、日を取得\n            let year = datetime.getFullYear().toString().padStart(4, '0');\n            let month = (datetime.getMonth() + 1).toString().padStart(2, '0');\n            let day = datetime.getDate().toString().padStart(2, '0');\n            // Azure連携用の文字列を組み立て\n            let dateString = year + '/' + month + '/' + day;\n            // デバッグ用\n            context.Log('datetime:['+datetime+'], year:['+year+'], month:['+month+'], day:['+day+'], dateString:['+dateString);\n            return dateString\n        }\n\n        // Plesanter→LogicAppsを呼び出し\n\t\t// →LogicApps経由でSQLServerのテーブルを更新\n\n\t\t// リクエストボディをセット\n        let request_body = {\n          requestId: model.IssueId, // 申請ID\n\t\t  crudType: 'INSERT',  // 処理区分\n          operationType: model.ClassB,  // 申請理由区分\n\t\t  employeeNo: model.ClassC, //従業員番号\n\t\t  lastName: model.ClassD,  // 姓\n\t\t  firstName: model.ClassE,  // 名\n\t\t  emailAddress: model.ClassF,  // メールアドレス\n\t\t  joiningDate: convDateString(model.DateA,9),  // 入社日\n\t\t  retirementDate: convDateString(model.DateB,9), // 退職日\n          departmentCode: model.ClassG,  // 部署コード\n        };\n\n\t\t// リクエストヘッダーをセット\n\t\thttpClient.RequestUri = 'https://prod-02.japaneast.logic.azure.com:443/workflows/8c49c44e1c614a8cb739a38705ceb0d8/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=C6Nfm1Vm-63jH5k1a69pNOOa69mH4_o9np7qNCjyQ0o';\n        httpClient.MediaType = 'application/json';\n        httpClient.Content = JSON.stringify(request_body);\n\t\t// リクエストをPOST\n        let response = httpClient.Post();\n\t\t\n\t\t// リクエストが成功した場合\n        if(httpClient.IsSuccess) {\n            context.AddMessage('申請の処理リクエストを送信しました。');\n            // context.AddMessage('Success: (' + httpClient.StatusCode + ')' + response);\n        }\n\t\t// リクエストが失敗した場合\n\t\telse{\n            context.Log('Error: (' + httpClient.StatusCode + ')' + response);\n            context.AddMessage('Error: (' + httpClient.StatusCode + ')');\n\t\t\t\n\t\t\t// Idが「model.IssueId」の明細を取得\n\t\t\t// (参考)https://pleasanter.org/manual/server-script-api-model\n            let api_model = items.Get(model.IssueId);          \n\t\t\tif (api_model.Length > 0) {\n\n\t\t\t\t// 「状況」を920(エラー)にセット                \n\t\t\t\tapi_model[0].Status = 920;\n\t\t\t\t// 「システムメッセージ」(分類x)をセット\n                api_model[0].ClassL = 'システムエラー：不明なエラーが発生しました（statusCode:' + httpClient.StatusCode + ') システム管理者に問い合わせて下さい。';\n\t\t\t\t// 更新\n                api_model[0].Update();\n\t\t\t\t// Idが「model.IssueId」の明細を取得\n                api_model = items.Get(model.IssueId);\n\t\t\t\t// ログ出力\n                context.Log('api_model[0].Status: (' + api_model[0].Status + ')');\n            }\n            context.Log('model.Status: (' + model.Status + ')');\n        }\n    }\n} catch (e){\n    context.Log(e.stack);  \n}",
+            "Id": 1
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    }
+  ],
+  "Data": [],
+  "Permissions": [
+    {
+      "SiteId": 7121098,
+      "Permissions": []
+    }
+  ],
+  "PermissionIdList": {
+    "DeptIdList": [],
+    "GroupIdList": [],
+    "UserIdList": []
+  }
+}
