@@ -1,0 +1,126 @@
+﻿{
+  "HeaderInfo": {
+    "AssemblyVersion": "1.3.28.0",
+    "BaseSiteId": 7303995,
+    "Server": "https://demo.pleasanter.org",
+    "CreatorName": "テナント管理者",
+    "PackageTime": "2023-01-16T11:35:12.0092062+00:00",
+    "Convertors": [
+      {
+        "SiteId": 7303995,
+        "SiteTitle": "活性制御_test",
+        "ReferenceType": "Issues",
+        "IncludeData": false
+      }
+    ],
+    "IncludeSitePermission": true,
+    "IncludeRecordPermission": true,
+    "IncludeColumnPermission": true,
+    "IncludeNotifications": true,
+    "IncludeReminders": true
+  },
+  "Sites": [
+    {
+      "TenantId": 14638,
+      "SiteId": 7303995,
+      "Title": "活性制御_test",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "ReferenceType": "Issues",
+      "ParentId": 7121097,
+      "InheritPermission": 7121097,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Issues",
+        "GridColumns": [
+          "IssueId",
+          "TitleBody",
+          "StartTime",
+          "Status",
+          "Owner",
+          "ClassA",
+          "ClassB",
+          "ClassC",
+          "ClassD",
+          "ClassE",
+          "ClassF"
+        ],
+        "EditorColumnHash": {
+          "General": [
+            "IssueId",
+            "Ver",
+            "Status",
+            "Title",
+            "StartTime",
+            "Owner",
+            "ClassA",
+            "ClassB",
+            "ClassC",
+            "ClassD",
+            "ClassE",
+            "ClassF"
+          ]
+        },
+        "Columns": [
+          {
+            "ColumnName": "ClassA",
+            "LabelText": "未着手(100)で活性化"
+          },
+          {
+            "ColumnName": "ClassB",
+            "LabelText": "準備(150)で活性化"
+          },
+          {
+            "ColumnName": "ClassC",
+            "LabelText": "実施中(200)で活性化"
+          },
+          {
+            "ColumnName": "ClassD",
+            "LabelText": "レビュー(300)で活性化"
+          },
+          {
+            "ColumnName": "ClassE",
+            "LabelText": "完了(900)で活性化"
+          },
+          {
+            "ColumnName": "ClassF",
+            "LabelText": "保留(910)で活性化"
+          }
+        ],
+        "Scripts": [
+          {
+            "Title": "静的な活性制御",
+            "All": true,
+            "Body": "\n$p.events.on_editor_load =  function () {\n    console.log(\"活性制御テスト\");\n    switch($(\"#Issues_Status\").val()) {\n\t    // 未着手\n        case '100':\n            // 非活性\n\t\t\t$('#Issues_ClassA').prop('disabled', true).css('background-color','#5b5b5b');\t\t\n            break;\n\t    // 準備中\n        case '150':\n            // 非活性\n\t\t\t$('#Issues_ClassB').prop('disabled', true).css('background-color','#5b5b5b');\t\t\n            break;\n\t    // 実施中\n        case '200':\n            // 非活性\n\t\t\t$('#Issues_ClassC').prop('disabled', true).css('background-color','#5b5b5b');\t\t\n            break;\n\t    // レビュー\n        case '300':\n            // 非活性\n\t\t\t$('#Issues_ClassD').prop('disabled', true).css('background-color','#5b5b5b');\t\t\n            break;\n\t    // 完了\n        case '900':\n            // 非活性\n\t\t\t$('#Issues_ClassE').prop('disabled', true).css('background-color','#5b5b5b');\t\t\n            break;\n\t    // 保留\n        case '910':\n            // 非活性\n\t\t\t$('#Issues_ClassF').prop('disabled', true).css('background-color','#5b5b5b');\t\t\n            break;\n        default:\n            break;\n    }\n}\n",
+            "Id": 1
+          },
+          {
+            "Title": "動的な活性制御",
+            "All": true,
+            "Body": "\n$(document).on('change', '#Issues_Status', function () {\n    console.log(\"活性制御テスト\");\n    switch($(\"#Issues_Status\").val()) {\n\t    // 未着手\n        case '100':\n            // 非活性\n\t\t\t$('#Issues_ClassA').prop('disabled', true).css('background-color','#5b5b5b');\t\n\t\t\t$('#Issues_ClassB').prop('disabled', false).css('background-color','#ffffff');\t\t\t\n\t\t\t$('#Issues_ClassC').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassD').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassE').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassF').prop('disabled', false).css('background-color','#ffffff');\n            break;\n\t    // 準備中\n        case '150':\n            // 非活性\n\t\t\t$('#Issues_ClassA').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassB').prop('disabled', true).css('background-color','#5b5b5b');\t\t\t\n\t\t\t$('#Issues_ClassC').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassD').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassE').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassF').prop('disabled', false).css('background-color','#ffffff');\t\t\n            break;\n\t    // 実施中\n        case '200':\n            // 非活性\n\t\t\t$('#Issues_ClassA').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassB').prop('disabled', false).css('background-color','#ffffff');\t\t\t\n\t\t\t$('#Issues_ClassC').prop('disabled', true).css('background-color','#5b5b5b');\t\n\t\t\t$('#Issues_ClassD').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassE').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassF').prop('disabled', false).css('background-color','#ffffff');\t\t\n            break;\n\t    // レビュー\n        case '300':\n            // 非活性\n\t\t\t$('#Issues_ClassA').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassB').prop('disabled', false).css('background-color','#ffffff');\t\t\t\n\t\t\t$('#Issues_ClassC').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassD').prop('disabled', true).css('background-color','#5b5b5b');\t\n\t\t\t$('#Issues_ClassE').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassF').prop('disabled', false).css('background-color','#ffffff');\t\n            break;\n\t    // 完了\n        case '900':\n            // 非活性\n\t\t\t$('#Issues_ClassA').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassB').prop('disabled', false).css('background-color','#ffffff');\t\t\t\n\t\t\t$('#Issues_ClassC').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassD').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassE').prop('disabled', true).css('background-color','#5b5b5b');\t\n\t\t\t$('#Issues_ClassF').prop('disabled', false).css('background-color','#ffffff');\t\t\t\n            break;\n\t    // 保留\n        case '910':\n            // 非活性\n\t\t\t$('#Issues_ClassA').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassB').prop('disabled', false).css('background-color','#ffffff');\t\t\t\n\t\t\t$('#Issues_ClassC').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassD').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassE').prop('disabled', false).css('background-color','#ffffff');\t\n\t\t\t$('#Issues_ClassF').prop('disabled', true).css('background-color','#5b5b5b');\t\t\t\n            break;\n        default:\n            break;\n    }\n})\n",
+            "Id": 2
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    }
+  ],
+  "Data": [],
+  "Permissions": [
+    {
+      "SiteId": 7303995,
+      "Permissions": []
+    }
+  ],
+  "PermissionIdList": {
+    "DeptIdList": [],
+    "GroupIdList": [],
+    "UserIdList": []
+  }
+}
