@@ -1,0 +1,413 @@
+﻿{
+  "HeaderInfo": {
+    "AssemblyVersion": "1.3.28.0",
+    "BaseSiteId": 7122234,
+    "Server": "https://demo.pleasanter.org",
+    "CreatorName": "テナント管理者",
+    "PackageTime": "2023-01-16T09:13:18.2628081+00:00",
+    "Convertors": [
+      {
+        "SiteId": 7122234,
+        "SiteTitle": "Pleasanter_ワークフロー_test",
+        "ReferenceType": "Issues",
+        "IncludeData": false
+      }
+    ],
+    "IncludeSitePermission": true,
+    "IncludeRecordPermission": true,
+    "IncludeColumnPermission": true,
+    "IncludeNotifications": true,
+    "IncludeReminders": true
+  },
+  "Sites": [
+    {
+      "TenantId": 14638,
+      "SiteId": 7122234,
+      "Title": "Pleasanter_ワークフロー_test",
+      "SiteName": "",
+      "SiteGroupName": "",
+      "Body": "",
+      "GridGuide": "",
+      "EditorGuide": "",
+      "ReferenceType": "Issues",
+      "ParentId": 7121097,
+      "InheritPermission": 7121097,
+      "SiteSettings": {
+        "Version": 1.017,
+        "ReferenceType": "Issues",
+        "GridColumns": [
+          "IssueId",
+          "Status",
+          "Owner",
+          "Updator",
+          "UpdatedTime",
+          "ClassA",
+          "ClassB",
+          "ClassC",
+          "ClassD",
+          "DateA",
+          "DateB",
+          "DateC",
+          "DateD"
+        ],
+        "EditorColumnHash": {
+          "General": [
+            "IssueId",
+            "Ver",
+            "Title",
+            "Status",
+            "_Section-4",
+            "Owner",
+            "ClassA",
+            "ClassE",
+            "DateA",
+            "DescriptionA",
+            "_Section-1",
+            "ClassB",
+            "DateB",
+            "DescriptionB",
+            "_Section-2",
+            "ClassC",
+            "DateC",
+            "DescriptionC",
+            "_Section-3",
+            "ClassD",
+            "DateD",
+            "DescriptionD"
+          ]
+        },
+        "SectionLatestId": 4,
+        "Sections": [
+          {
+            "Id": 4,
+            "LabelText": "申請者",
+            "AllowExpand": false,
+            "Expand": true
+          },
+          {
+            "Id": 1,
+            "LabelText": "申請部門",
+            "AllowExpand": false,
+            "Expand": true
+          },
+          {
+            "Id": 2,
+            "LabelText": "受入部門",
+            "AllowExpand": false,
+            "Expand": true
+          },
+          {
+            "Id": 3,
+            "LabelText": "人事部門",
+            "AllowExpand": false,
+            "Expand": true
+          }
+        ],
+        "Columns": [
+          {
+            "ColumnName": "ClassA",
+            "LabelText": "異動元部門",
+            "Description": "申請者が所属する組織",
+            "ChoicesText": "部署A,\n部署B,\n部署C",
+            "ValidateRequired": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassB",
+            "LabelText": "申請部門承認者",
+            "Description": "承認または差戻した、申請部署の責任者",
+            "ChoicesText": "[[Users]]",
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassC",
+            "LabelText": "受入部門承認者",
+            "Description": "承認または差戻した、受入部署の責任者",
+            "ChoicesText": "[[Users]]",
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassD",
+            "LabelText": "人事部門承認者",
+            "Description": "承認または差戻した、人事部署の責任者",
+            "ChoicesText": "[[Users]]",
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "DateA",
+            "LabelText": "申請日"
+          },
+          {
+            "ColumnName": "DateB",
+            "LabelText": "申請部門承認日",
+            "Description": "申請部署が承認または差戻した日時"
+          },
+          {
+            "ColumnName": "DateC",
+            "LabelText": "受入部門承認日",
+            "Description": "受入部署が承認または差戻した日時"
+          },
+          {
+            "ColumnName": "DateD",
+            "LabelText": "人事部門承認日"
+          },
+          {
+            "ColumnName": "DescriptionA",
+            "LabelText": "起案理由",
+            "AllowImage": false
+          },
+          {
+            "ColumnName": "DescriptionB",
+            "LabelText": "申請部門コメント",
+            "AllowImage": false
+          },
+          {
+            "ColumnName": "DescriptionC",
+            "LabelText": "受入部門コメント",
+            "AllowImage": false
+          },
+          {
+            "ColumnName": "DescriptionD",
+            "LabelText": "人事部門コメント"
+          },
+          {
+            "ColumnName": "Status",
+            "ChoicesText": "100,申請待\n200,申請部門承認待\n300,受入部門承認待\n400,人事部門承認待\n910,取下\n920,完了"
+          },
+          {
+            "ColumnName": "Owner",
+            "LabelText": "申請者"
+          },
+          {
+            "ColumnName": "ClassE",
+            "LabelText": "異動先部門",
+            "ChoicesText": "部署A,\n部署B,\n部署C",
+            "ValidateRequired": true,
+            "SearchType": "PartialMatch"
+          },
+          {
+            "ColumnName": "ClassF",
+            "Hide": true
+          }
+        ],
+        "Processes": [
+          {
+            "Id": 1,
+            "Name": "A01_申請",
+            "DisplayName": "申請",
+            "CurrentStatus": 100,
+            "ChangedStatus": 200,
+            "Description": "申請を行い、申請部門に承認を依頼する",
+            "Tooltip": "申請を行い、申請部門に承認を依頼します",
+            "ConfirmationMessage": "記入した内容で申請してよろしいですか",
+            "SuccessMessage": "申請しました",
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "ApiDataType": 0
+            }
+          },
+          {
+            "Id": 2,
+            "Name": "B01_申請部門承認",
+            "DisplayName": "申請部門承認",
+            "CurrentStatus": 200,
+            "ChangedStatus": 300,
+            "Description": "申請部門承認を行い、受入部門に承認を依頼する",
+            "Tooltip": "申請部門承認を行い、受入部門に承認を依頼します",
+            "ConfirmationMessage": "この内容で承認してよろしいですか",
+            "SuccessMessage": "申請部門承認が完了しました",
+            "Groups": [
+              3674
+            ],
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "ApiDataType": 0
+            }
+          },
+          {
+            "Id": 3,
+            "Name": "C01_受入部門承認",
+            "DisplayName": "受入部門承認",
+            "CurrentStatus": 300,
+            "ChangedStatus": 400,
+            "Description": "受入部門承認を行い、人事部門に承認を依頼する",
+            "Tooltip": "受入部門承認を行い、人事部門に承認を依頼します",
+            "ConfirmationMessage": "この内容で承認してよろしいですか",
+            "SuccessMessage": "受入部門承認が完了しました",
+            "Groups": [
+              3675
+            ],
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "ApiDataType": 0
+            }
+          },
+          {
+            "Id": 4,
+            "Name": "D01_人事部門承認",
+            "DisplayName": "人事部門承認",
+            "CurrentStatus": 400,
+            "ChangedStatus": 920,
+            "Description": "人事部門承認を行い、受入部門に承認を依頼する",
+            "Tooltip": "人事部門承認を行い、最終承認完了とします",
+            "ConfirmationMessage": "この内容で承認してよろしいですか",
+            "SuccessMessage": "最終承認が完了しました",
+            "Groups": [
+              3676
+            ],
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "ApiDataType": 0
+            }
+          },
+          {
+            "Id": 5,
+            "Name": "A10_申請取下げ",
+            "DisplayName": "取下げ",
+            "CurrentStatus": 100,
+            "ChangedStatus": 910,
+            "Description": "取り下げて完了状態とする",
+            "Tooltip": "申請を取下げします。再度申請できません。",
+            "ConfirmationMessage": "申請を取り下げしてよろしいですか",
+            "SuccessMessage": "申請を取り下げました",
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "ApiDataType": 0
+            }
+          },
+          {
+            "Id": 6,
+            "Name": "B10_申請部署による差戻",
+            "DisplayName": "差戻",
+            "CurrentStatus": 200,
+            "ChangedStatus": 100,
+            "Description": "申請者へ差し戻す",
+            "Tooltip": "申請者に差し戻します",
+            "ConfirmationMessage": "申請者に差し戻しますか",
+            "SuccessMessage": "申請を差し戻しました",
+            "Groups": [
+              3674
+            ],
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "ApiDataType": 0
+            }
+          },
+          {
+            "Id": 7,
+            "Name": "C10_受入部門による差戻",
+            "DisplayName": "差戻",
+            "CurrentStatus": 300,
+            "ChangedStatus": 200,
+            "Description": "申請部門承認へ差し戻す",
+            "Tooltip": "申請部門承認へ差し戻します",
+            "ConfirmationMessage": "差し戻しますか",
+            "SuccessMessage": "差し戻しました",
+            "Groups": [
+              3675
+            ],
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "ApiDataType": 0
+            }
+          },
+          {
+            "Id": 8,
+            "Name": "D10_人事部門による差戻",
+            "DisplayName": "人事部門による差戻",
+            "CurrentStatus": 400,
+            "ChangedStatus": 300,
+            "Description": "受入部門承認へ差し戻す",
+            "Tooltip": "受入部門承認へ差し戻します",
+            "ConfirmationMessage": "受入部門に差し戻しますか",
+            "SuccessMessage": "申請を差し戻しました",
+            "Groups": [
+              3676
+            ],
+            "View": {
+              "Id": 0,
+              "ApiColumnKeyDisplayType": 0,
+              "ApiColumnValueDisplayType": 0,
+              "ApiDataType": 0
+            }
+          }
+        ],
+        "Scripts": [
+          {
+            "Title": "編集画面読み込み時の必須項目の制御",
+            "New": true,
+            "Edit": true,
+            "Body": "$p.events.on_editor_load =  function () {\n    console.log(\"編集画面読み込み時の必須項目の変更\");\n    if($(\"#HeaderTitle\").text() !== '新規作成'){\n        // xxx 非活性\n        $('#Issues_Status').prop('disabled', true).css('background-color','#f5f5f5');\n        // $('#Issues_StatusField label').addClass('required ');\n    }\n    switch($(\"#Issues_Status\").val()) {\n\t    // 申請待ち\n        case '100':\n            // xxx 活性 必須\n            console.log(\"xxxx\");\n            break;\n\t    // 申請部門承認待\n        case '200':\n            // 申請者 非活性\n\t\t\t$('#Issues_Owner').prop('disabled', true).css('background-color','#f5f5f5');\n            // 異動元部門 非活性\n\t\t\t$('#Issues_ClassA').prop('disabled', true).css('background-color','#f5f5f5');\n            // 異動先部門 非活性\n\t\t\t$('#Issues_ClassE').prop('disabled', true).css('background-color','#f5f5f5');\n            // 申請日 非活性\n\t\t\t$('#Issues_DateA').prop('disabled', true).css('background-color','#f5f5f5');\n            // 起案理由 非活性\n\t\t\t$('#Issues_DescriptionA').prop('disabled', true).css('background-color','#f5f5f5');\t\t\t\n            break;\n\t    // 受入部門承認待\n        case '300':\n            // 申請者 非活性\n\t\t\t$('#Issues_Owner').prop('disabled', true).css('background-color','#f5f5f5');\n            // 異動元部門 非活性\n\t\t\t$('#Issues_ClassA').prop('disabled', true).css('background-color','#f5f5f5');\n            // 異動先部門 非活性\n\t\t\t$('#Issues_ClassE').prop('disabled', true).css('background-color','#f5f5f5');\n            // 申請日 非活性\n\t\t\t$('#Issues_DateA').prop('disabled', true).css('background-color','#f5f5f5');\n            // 起案理由 非活性\n\t\t\t$('#Issues_DescriptionA').prop('disabled', true).css('background-color','#f5f5f5');\t\t\n            break;\n\t    // 人事部門承認待\n        case '400':\n            // 申請者 非活性\n\t\t\t$('#Issues_Owner').prop('disabled', true).css('background-color','#f5f5f5');\n            // 異動元部門 非活性\n\t\t\t$('#Issues_ClassA').prop('disabled', true).css('background-color','#f5f5f5');\n            // 異動先部門 非活性\n\t\t\t$('#Issues_ClassE').prop('disabled', true).css('background-color','#f5f5f5');\n            // 申請日 非活性\n\t\t\t$('#Issues_DateA').prop('disabled', true).css('background-color','#f5f5f5');\n            // 起案理由 非活性\n\t\t\t$('#Issues_DescriptionA').prop('disabled', true).css('background-color','#f5f5f5');\t\t\t\n            break;\n\t    // 取下\n        case '910':\n            // 申請者 非活性\n\t\t\t$('#Issues_Owner').prop('disabled', true).css('background-color','#f5f5f5');\n            // 異動元部門 非活性\n\t\t\t$('#Issues_ClassA').prop('disabled', true).css('background-color','#f5f5f5');\n            // 異動先部門 非活性\n\t\t\t$('#Issues_ClassE').prop('disabled', true).css('background-color','#f5f5f5');\n            // 申請日 非活性\n\t\t\t$('#Issues_DateA').prop('disabled', true).css('background-color','#f5f5f5');\n            // 起案理由 非活性\n\t\t\t$('#Issues_DescriptionA').prop('disabled', true).css('background-color','#f5f5f5');\t\t\n            break;\n\t    // 完了\n        case '920':\n            // 申請者 非活性\n\t\t\t$('#Issues_Owner').prop('disabled', true).css('background-color','#f5f5f5');\n            // 異動元部門 非活性\n\t\t\t$('#Issues_ClassA').prop('disabled', true).css('background-color','#f5f5f5');\n            // 異動先部門 非活性\n\t\t\t$('#Issues_ClassE').prop('disabled', true).css('background-color','#f5f5f5');\n            // 申請日 非活性\n\t\t\t$('#Issues_DateA').prop('disabled', true).css('background-color','#f5f5f5');\n            // 起案理由 非活性\n\t\t\t$('#Issues_DescriptionA').prop('disabled', true).css('background-color','#f5f5f5');\t\t\n\n            break;\n        default:\n            break;\n    }\n\n}\n",
+            "Id": 1
+          }
+        ],
+        "ServerScripts": [
+          {
+            "Title": "申請部門承認者を取得",
+            "Name": "",
+            "WhenloadingSiteSettings": true,
+            "Body": "// グループ情報を取得（申請部門承認者）\nlet group1 = groups.Get(3674);\n// メンバーの数だけループ\nfor (let member of group1.GetMembers()) {\n // メンバーの情報を取得\n user = users.Get(member.UserId);\n // 「メンバー名<ログインID>」形式でデータを取得\n membername = user.Name + '<' + user.LoginId + '>';\n // 「申請部門承認者」項目の「選択肢一覧」を動的に設定\n columns.ClassB.AddChoiceHash(member.UserId, membername);\n}",
+            "Id": 1
+          },
+          {
+            "Title": "受入部門承認者を取得",
+            "Name": "",
+            "WhenloadingSiteSettings": true,
+            "Body": "// グループ情報を取得（受入部門承認者）\nlet group2 = groups.Get(3675);\n// メンバーの数だけループ\nfor (let member of group2.GetMembers()) {\n // メンバーの情報を取得\n user = users.Get(member.UserId);\n // 「メンバー名<ログインID>」形式でデータを取得\n membername = user.Name + '<' + user.LoginId + '>';\n // 「受入部門承認者」項目の「選択肢一覧」を動的に設定\n columns.ClassC.AddChoiceHash(member.UserId, membername);\n}",
+            "Id": 2
+          },
+          {
+            "Title": "人事部門承認者を取得",
+            "Name": "",
+            "WhenloadingSiteSettings": true,
+            "Body": "// グループ情報を取得（人事部門承認者）\nlet group3 = groups.Get(3676);\n// メンバーの数だけループ\nfor (let member of group3.GetMembers()) {\n // メンバーの情報を取得\n user = users.Get(member.UserId);\n // 「メンバー名<ログインID>」形式でデータを取得\n membername = user.Name + '<' + user.LoginId + '>';\n // 「人事部門承認者」項目の「選択肢一覧」を動的に設定\n columns.ClassD.AddChoiceHash(member.UserId, membername);\n}",
+            "Id": 3
+          }
+        ],
+        "NoDisplayIfReadOnly": false
+      },
+      "Publish": false,
+      "DisableCrossSearch": false,
+      "Comments": []
+    }
+  ],
+  "Data": [],
+  "Permissions": [
+    {
+      "SiteId": 7122234,
+      "Permissions": []
+    }
+  ],
+  "PermissionIdList": {
+    "DeptIdList": [],
+    "GroupIdList": [
+      {
+        "GroupId": 3674,
+        "GroupName": "申請部門承認者"
+      },
+      {
+        "GroupId": 3675,
+        "GroupName": "受入部門承認者"
+      },
+      {
+        "GroupId": 3676,
+        "GroupName": "人事部門承認者"
+      }
+    ],
+    "UserIdList": []
+  }
+}
